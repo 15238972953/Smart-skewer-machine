@@ -4,7 +4,13 @@
 
 #include<Arduino.h>
 
-void Timer_Open(uint8_t num);
-void IRAM_ATTR onTimer();
+void Timer0_Open();
+void Timer1_Open();
+void Timer2_Open();
+void Timer3_Open();
+void IRAM_ATTR onTimer0();
+void IRAM_ATTR onTimer1();
+void IRAM_ATTR onTimer2();
+void IRAM_ATTR onTimer3();
 
 #endif

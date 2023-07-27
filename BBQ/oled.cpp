@@ -139,35 +139,3 @@ void OLED_ShowString(uint8_t bus,uint8_t size,uint8_t x,uint8_t y,char *p)
     p++;
   }  
 }
-
-void OLED1_Add(){
-
-}
-
-void OLED1_Sub(){
-
-}
-
-void OLED2_Add(){
-
-}
-
-void OLED2_Sub(){
-
-}
-
-void OLED3_Add(){
-
-}
-
-void OLED3_Sub(){
-
-}
-
-void OLED4_Add(){
-
-}
-
-void OLED4_Sub(){
-
-}

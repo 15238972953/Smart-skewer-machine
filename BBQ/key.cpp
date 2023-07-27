@@ -2,6 +2,10 @@
 #include "oled.h"
 
 volatile bool button1_Pressed = false;
+extern int bbq_time1;
+extern int bbq_time2;
+extern int bbq_time3;
+extern int bbq_time4;
 
 void KEY_init(){
   pinMode(KEY1,INPUT_PULLUP);
@@ -13,16 +17,17 @@ void KEY_init(){
   pinMode(KEY7,INPUT_PULLUP);
   pinMode(KEY8,INPUT_PULLUP);
 
-  attachInterrupt(digitalPinToInterrupt(KEY1), OLED1_Add, FALLING);  //设置触发中断的模式和中断服务函数
-  attachInterrupt(digitalPinToInterrupt(KEY2), OLED1_Sub, FALLING);  //设置触发中断的模式和中断服务函数
-  attachInterrupt(digitalPinToInterrupt(KEY3), OLED2_Add, FALLING);  //设置触发中断的模式和中断服务函数
-  attachInterrupt(digitalPinToInterrupt(KEY4), OLED2_Sub, FALLING);  //设置触发中断的模式和中断服务函数
-  attachInterrupt(digitalPinToInterrupt(KEY5), OLED3_Add, FALLING);  //设置触发中断的模式和中断服务函数
-  attachInterrupt(digitalPinToInterrupt(KEY6), OLED3_Sub, FALLING);  //设置触发中断的模式和中断服务函数
-  attachInterrupt(digitalPinToInterrupt(KEY7), OLED4_Add, FALLING);  //设置触发中断的模式和中断服务函数
-  attachInterrupt(digitalPinToInterrupt(KEY8), OLED4_Sub, FALLING);  //设置触发中断的模式和中断服务函数
+  // attachInterrupt(digitalPinToInterrupt(KEY1), time1_Add, FALLING);  //设置触发中断的模式和中断服务函数
+  // attachInterrupt(digitalPinToInterrupt(KEY2), time1_Sub, FALLING);  //设置触发中断的模式和中断服务函数
+  // attachInterrupt(digitalPinToInterrupt(KEY3), time2_Add, FALLING);  //设置触发中断的模式和中断服务函数
+  // attachInterrupt(digitalPinToInterrupt(KEY4), time2_Sub, FALLING);  //设置触发中断的模式和中断服务函数
+  // attachInterrupt(digitalPinToInterrupt(KEY5), time3_Add, FALLING);  //设置触发中断的模式和中断服务函数
+  // attachInterrupt(digitalPinToInterrupt(KEY6), time3_Sub, FALLING);  //设置触发中断的模式和中断服务函数
+  // attachInterrupt(digitalPinToInterrupt(KEY7), time4_Add, FALLING);  //设置触发中断的模式和中断服务函数
+  // attachInterrupt(digitalPinToInterrupt(KEY8), time4_Sub, FALLING);  //设置触发中断的模式和中断服务函数
 }
 
+//轮询方式
 uint8_t KEY_Scan(uint8_t mode)
 {	 
 	static uint8_t key_up=1;//按键按松开标志
@@ -45,5 +50,51 @@ uint8_t KEY_Scan(uint8_t mode)
  	return 0;// 无按键按下
 }
 
+// void time1_Add(){
+//   delay(10);
+//   if(0==digitalRead(KEY1))
+//     bbq_time1=bbq_time1+10;
+// }
 
+// void time1_Sub(){
+//   delay(10);
+//   if(0==digitalRead(KEY2))
+//     bbq_time1=bbq_time1-10;
+// }
+
+// void time2_Add(){
+//   delay(10);
+//   if(0==digitalRead(KEY3))
+//     bbq_time2=bbq_time2+10;
+// }
+
+// void time2_Sub(){
+//   delay(10);
+//   if(0==digitalRead(KEY4))
+//     bbq_time2=bbq_time2-10;
+// }
+
+// void time3_Add(){
+//   delay(10);
+//   if(0==digitalRead(KEY5))
+//     bbq_time3=bbq_time3+10;
+// }
+
+// void time3_Sub(){
+//   delay(10);
+//   if(0==digitalRead(KEY6))
+//     bbq_time3=bbq_time3-10;
+// }
+
+// void time4_Add(){
+//   delay(10);
+//   if(0==digitalRead(KEY7))
+//     bbq_time4=bbq_time4+10;
+// }
+
+// void time4_Sub(){
+//   delay(10);
+//   if(0==digitalRead(KEY8))
+//     bbq_time4=bbq_time4-10;
+// }
 

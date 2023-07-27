@@ -8,16 +8,17 @@ void QR_init(){
 }
 
 //串口中断函数
-void serialEvent() {
-  while (Serial.available()) {
+void serialEvent2() {
+  while (Serial2.available()) {
     // get the new byte:
-    char inChar = (char)Serial.read();
+    char inChar = (char)Serial2.read();
     // add it to the inputString:
     inputString += inChar;
-    if (inChar == '\n') {
+    if (inputString.length()>=5) {
       stringComplete = true;
     }
   }
+  Serial2.end();
 }
 
 //得到烧烤时间
